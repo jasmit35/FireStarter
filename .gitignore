@@ -1,3 +1,8 @@
-.DS_Store
-~*
+
 Building Fire Starter.docx
+Fire-Starter User's Guide.docx
+
+.DS_Store/
+
+*/.DS_Store/
+
