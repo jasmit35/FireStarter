@@ -11,7 +11,7 @@
 * Create a new project in OmniFocus Computing/Projects/*project_name*.
 * Start adding known task to the project.
 
-## Initial Development
+## Initial Setup
 * Review the Cookie Cutter Templates document to select the approrate template for the project.
 * Select then node for development work (Jobs for home or MoMac for work).
 * Sign into the account used for the development work (noramally just my usual jeff or js8335 account.)
@@ -36,6 +36,13 @@
 
 `git push -u origin master`
 
+* Create the virtual environment
+
+`cd $HOME/devl/`*project_name*
+
+`pyenv virtualenv 3.8.2 `*project_name*
+
+`pyenv local `*project_name*
 
  
 
