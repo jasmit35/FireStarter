@@ -23,6 +23,10 @@
 
 `cookiecutter` *template_name*
 
+* Install the requirements.
+
+`python -m pip install --requirement=requirements.txt`
+
 * Move to the top level directory for the project.
 * Get the initially generated code onto github.
 
