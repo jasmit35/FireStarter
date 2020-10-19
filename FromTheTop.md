@@ -51,3 +51,19 @@
  
 
 
+## Enhancements
+Make sure the branch is up to date with the master branch in the repository.
+
+`git pull origin master`
+
+Create the new feature branch.
+
+`git branch vers_0_2_0`
+
+Check commits, tags and where HEAD is pointing.
+
+`git log --oneline --decorate`
+
+Switch to the new branch.
+
+`git checkout vers_0_2_0`
