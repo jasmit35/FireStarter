@@ -71,7 +71,7 @@ def copy_files(source_dir, target_dir, file_names, file_mode):
             print(msg)
             continue
 
-        os.chmod(target_file, file_mode)
+#         os.chmod(target_file, file_mode)
         print(f'{msg} successful.')
 
 

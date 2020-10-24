@@ -67,3 +67,11 @@ Check commits, tags and where HEAD is pointing.
 Switch to the new branch.
 
 `git checkout vers_0_2_0`
+
+
+## Add WOZ
+`git remote -v`
+
+`git remote rename origin github`
+
+`remote add woz git@woz.local:/opt/app/git/Synctify.git`
