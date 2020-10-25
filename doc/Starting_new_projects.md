@@ -40,6 +40,18 @@
 
 `git push -u origin master`
 
+## Add WOZ
+`git remote -v`
+
+`git remote rename origin github`
+
+`remote add woz git@woz.local:/opt/app/git/Synctify.git`
+
+
+
+
+
+
 * Create the virtual environment
 
 `cd $HOME/devl/`*project_name*
