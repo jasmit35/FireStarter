@@ -1,6 +1,6 @@
-# From The Top
+# Creating a new cookie cutter template 
 ## github
-* Come up with a name for the project.
+* Come up with a name for the template.
 * Sign into github and go to the list of my repositories.
 * Give the repository a name and optionally a description.
 * Leave the repo as public.
@@ -12,25 +12,38 @@
 * Start adding known task to the project.
 
 ## Initial Setup
-* Review the Cookie Cutter Templates document to select the approrate template for the project.
-* Select then node for development work (Jobs for home or MoMac for work).
-* Sign into the account used for the development work (noramally just my usual jeff or js8335 account.)
+* Review the Cookie Cutter Templates document to select the approrate template to clone for the project.
 * Move to the $HOME/devl directory.
 
 `cd $HOME/devl`
 
-* Run Cookie Cutter with the appropriate template.
+Clone the new empty project to start things off.
 
-`cookiecutter` *template_name*
+`git clone https://github.com/jasmit35/cc-pypod.git`
 
-* Install the requirements.
+Clone the source cookie cutter project into the /tmp directory.
 
-`python -m pip install --requirement=requirements.txt`
+`cd /tmp`
 
-* Move to the top level directory for the project.
-* Get the initially generated code onto github.
+`git clone https://github.com/jasmit35/cc-pycmdline.git`
 
-`git init`
+Remove the .git directory.
+
+`rm -rf cc-pycmdline/.git`
+
+Rename the directory to the new name them tar it up.
+
+`mv cc-pycmdline cc-pypod`
+
+`tar -cvf cc-pypod.tar cc-pypod`
+
+Untar the code into the new devl directory.
+
+`cd ~/devl`
+
+`tar -xvf /tmp/cc-pypod.tar`
+
+* Get the initial code onto github.
 
 `git add .`
 
