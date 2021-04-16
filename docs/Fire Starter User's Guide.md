@@ -93,6 +93,8 @@ Check the System Guide for the project to see if their are any non-standard step
 
 `git push woz master`
 
+#### Update the defects and enhacemnts document to reflect what has been completed in this version.
+
 #### Assign the new version number as a tag in Git.
 
 Check the defects and enhancements document to make sure of the new application version number.
@@ -103,19 +105,27 @@ Check the defects and enhancements document to make sure of the new application 
 
 `git push --tags woz`
 
-#### Update the defects and enhacemnts document to reflect what has been completed in this version.
+####  Save any new docker images
+
+Male sure the version number is set correctly in the Makefile.
+
+Rebuild the image to make sure the version is tages correctly.
+
+`make dbc-build`
+
+Then push the image to Docker Hub for distribution.
+
+`make push-image`
   
 ## Test and Prod installation
 
 Signon to the appropriate target server using my normal ID.
-Switch to the /tmp directory.
-Clone the project from GitHub:
 
-`git clone https://github.com/jasmit35/`*project name*`.git`
+Use auto_update to install the code.
 
 `auto_update -a `*project name*` -e ` *environment*
 
-If there were non-standard migration steps, handle them.
+If there are non-standard migration steps, handle them.
 
 ## Apendix A - Adding a WOZ git repository to a project
 

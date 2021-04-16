@@ -3,19 +3,15 @@ auto_update.py
 """
 import argparse
 import config
-import os
 import pathlib
 import shutil
 import sys
+import modules.run_shell_cmds as rsc
 
-# import subprocess
-
-# import modules.DBSecEnvironment as dbse
-
-auto_update_version = "0.2.0"
+auto_update_version = "0.3.0"
 
 
-def get_config():
+def get_cmdline_args():
     parser = argparse.ArgumentParser(description="auto_update")
 
     parser.add_argument(
@@ -27,6 +23,7 @@ def get_config():
 
     parser.add_argument(
         "-e", "--environment", required=True,
+        choices=['devl', 'test', 'prod'],
         help="Environment - devl, test, or prod"
     )
 
@@ -76,18 +73,25 @@ def copy_files(source_dir, target_dir, file_names, file_mode):
 
 
 def main():
-    #  Get the valid command line arugments
-    args = get_config()
+    args = get_cmdline_args()
     application_name = args.application
     environment = args.environment
 
-    #  Now use the specifications to perform the requested upgrade
-    #  from the application's configuration file
-    cfg = config.Config(
-        f'/tmp/{application_name}/src/local/cfg/{application_name}_au.cfg'
-        )
-    assets = cfg[f'{environment}.assets']
+    cmd = f"cd /tmp ; git clone https://github.com/jasmit35/{application_name}.git"
+    rc, stdout, stderr = rsc.run_shell_cmds(cmd)
+    sys.stdout.buffer.write(stdout)
+    if rc:
+        sys.stderr.buffer.write(stderr)
+        sys.exit(rc)
 
+    if environment == 'devl':
+        print("Processing complete for development environment.")
+        sys.exit(0)
+
+    cfg = config.Config(
+        f'/tmp/{application_name}/{application_name}_au.cfg'
+    )
+    assets = cfg[f'{environment}.assets']
     for asset in assets:
         process_asset(environment, cfg, asset)
 
