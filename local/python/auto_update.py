@@ -6,7 +6,7 @@ import config
 import pathlib
 import shutil
 import sys
-import modules.run_shell_cmds as rsc
+import run_shell_cmds as rsc
 
 auto_update_version = "0.3.0"
 
@@ -47,13 +47,32 @@ def process_asset(environment, cfg, asset):
 does not exist!')
         return
 
-    if not pathlib.Path(trg_dir).is_dir():
-        print('The target directory "{}" does not exist!'.format(trg_dir))
+    if not valid_target_directory(trg_dir):
         return
 
     copy_files(src_dir, trg_dir, file_names, file_mode)
 
 
+#  -----------------------------------------------------------------------------
+def valid_target_directory(target_dir):
+    if pathlib.Path(target_dir).is_dir():
+        return True
+    
+    print(f"The directory {target_dir} does not exist.\n")
+    
+    response = None
+    while response not in ['y', 'n']:
+        response = input("Would you like to create it (y/n)?")
+
+    if response == 'n':
+        return False
+
+    p = pathlib.Path(target_dir)
+    p.mkdir(parents=True)
+    return True
+
+
+#  -----------------------------------------------------------------------------
 def copy_files(source_dir, target_dir, file_names, file_mode):
     for file in file_names:
         source_file = source_dir + "/" + file
