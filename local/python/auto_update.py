@@ -57,9 +57,9 @@ does not exist!')
 def valid_target_directory(target_dir):
     if pathlib.Path(target_dir).is_dir():
         return True
-    
+
     print(f"The directory {target_dir} does not exist.\n")
-    
+
     response = None
     while response not in ['y', 'n']:
         response = input("Would you like to create it (y/n)?")
@@ -91,17 +91,41 @@ def copy_files(source_dir, target_dir, file_names, file_mode):
         print(f'{msg} successful.')
 
 
-def main():
-    args = get_cmdline_args()
-    application_name = args.application
-    environment = args.environment
-
+#  ----------------------------------------------------------------------------
+def perform_github_clone(application_name):
     cmd = f"cd /tmp ; git clone https://github.com/jasmit35/{application_name}.git"
     rc, stdout, stderr = rsc.run_shell_cmds(cmd)
     sys.stdout.buffer.write(stdout)
     if rc:
         sys.stderr.buffer.write(stderr)
         sys.exit(rc)
+
+
+#  ----------------------------------------------------------------------------
+def prep_github_clone(application_name):
+    tmp_path = pathlib.Path(f"/tmp/{application_name}")
+
+    if not tmp_path.is_dir():
+        perform_github_clone(application_name)
+
+    else:
+        print("A github clone alredy exist.\n")
+        response = None
+        while response not in ['y', 'n']:
+            response = input("reuse (y/n))?")
+
+        if response == 'n':
+            shutil.rmtree(tmp_path)
+            perform_github_clone(application_name)
+
+
+#  ----------------------------------------------------------------------------
+def main():
+    args = get_cmdline_args()
+    application_name = args.application
+    environment = args.environment
+
+    prep_github_clone(application_name)
 
     if environment == 'devl':
         print("Processing complete for development environment.")
