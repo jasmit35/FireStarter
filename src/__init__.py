@@ -8,7 +8,7 @@ for creating and managing standard projects.
 """
 
 #  Package level variables
-__version__ = "0.1.2"
+__version__ = "0.1.4"
 __author__ = "jasmit"
 
 # Package level imports

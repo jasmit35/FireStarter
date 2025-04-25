@@ -1,14 +1,17 @@
-# Installing FireStart on a new sever to manage applications.
+
+# Installing FireStart on a new sever 
+
 ## Install pyenv
+
 Use thier install script to download and install the software:
 
-```
+```bash
 curl https://pyenv.run | bash
 ```
 
 Add the following to my .bash_profile:
 
-```
+```bash
 #  My stuff
 export ENVIRONMENT=devl
 

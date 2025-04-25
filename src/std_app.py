@@ -4,7 +4,8 @@ std_app.py
 
 import configparser
 
-from std_logging import StdLogging, function_logger
+#  from .std_logging import StdLogging, function_logger
+from .std_logging import function_logger
 
 
 #  =============================================================================
