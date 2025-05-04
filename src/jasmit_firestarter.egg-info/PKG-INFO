@@ -1,6 +1,6 @@
 Metadata-Version: 2.4
 Name: jasmit_firestarter
-Version: 0.1.4
+Version: 0.1.5
 Summary: Tools often used when starting a new project
 Author-email: jasmit <js8335@swbell.net>
 Requires-Python: <3.13,>=3.12

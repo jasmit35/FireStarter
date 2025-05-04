@@ -5,18 +5,18 @@ std_app.py
 import configparser
 
 #  from .std_logging import StdLogging, function_logger
-from .std_logging import function_logger
+from std_logging import StdLogging, function_logger
 
 
 #  =============================================================================
 class StdApp:
     #  -----------------------------------------------------------------------------
-    def __init__(self, app_name="", version="0.0.0"):
+    def __init__(self, app_name="", version="0.0.0") -> None:
         self._logger = StdLogging(f"logs/{app_name}.log")
         self._logger.info(f"Begin 'StdApp.__init__         ' arguments - ({app_name=}, {version=})")
 
         self._app_name = app_name
-        self._version = version
+        #  self.__version__ = version
 
         self.cmdline_params = self.set_cmdline_params()
         self.cfg_file_params = self.set_cfg_file_params()
