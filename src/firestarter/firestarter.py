@@ -13,11 +13,11 @@ class FireStarter(StdApp):
 
 
     def set_cmdline_params(self):
-        parser = ArgumentParser(description="TROLoadBank")
+        parser = ArgumentParser(description="FireStarter")
         parser.add_argument(
             "-e",
             "--environment",
-            required=False,
+            required=True,
             help="Environment - devl, test or prod",
         )
         parser.add_argument(

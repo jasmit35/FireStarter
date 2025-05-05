@@ -1,10 +1,13 @@
 """
 std_app.py
+This module defines the StdApp class, which is a base class for creating
+standard applications. The StdApp class provides methods for setting
+command line parameters and configuration file parameters. It also
+provides a logger for logging messages to a file.   
 """
 
 import configparser
 
-#  from .std_logging import StdLogging, function_logger
 from std_logging import StdLogging, function_logger
 
 
@@ -16,7 +19,7 @@ class StdApp:
         self._logger.info(f"Begin 'StdApp.__init__         ' arguments - ({app_name=}, {version=})")
 
         self._app_name = app_name
-        #  self.__version__ = version
+        self.__version__ = version
 
         self.cmdline_params = self.set_cmdline_params()
         self.cfg_file_params = self.set_cfg_file_params()

@@ -1,5 +1,16 @@
 """
 std_logging.py
+
+This module provides a simple logging utility for Python applications.
+It uses the built-in logging module to log messages to a file.
+The logging level is set to DEBUG by default, and the log messages
+are formatted with a timestamp, log level, and message.
+
+OThe StdLogging class provides methods for logging messages at
+different levels: debug, info, warning, error, exception, and critical.
+
+The function_logger decorator can be used to log the start and end
+of a function, along with its arguments and return value.
 """
 
 from logging import DEBUG, basicConfig, getLogger, shutdown
@@ -24,13 +35,7 @@ class StdLogging:
         shutdown()
 
     # ---------------------------------------------------------------------------------------------------------------------
-    #  Define 5 helper short cuts to log at the 5 standard levels:
-    #  debug = 10
-    #  info = 20
-    #  warn = 30
-    #  error = 40
-    #  exception = 40
-    #  critical = 50
+    #  Define helper short cuts to log at the standard levels:
     def debug(self, message):
         self._std_logger.debug(message)
         return None

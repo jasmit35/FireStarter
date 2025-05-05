@@ -1,5 +1,1 @@
-__init__
-auto_update
 firestarter
-std_app
-std_logging

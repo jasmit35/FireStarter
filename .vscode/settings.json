@@ -1,10 +1,8 @@
 {
     "python.analysis.extraPaths": [
-        "/Users/jeff/.pyenv/versions/troload/lib/python3.8/site-packages",
-        "/Users/jeff/devl/local/python",
-        "/Users/jeff/devl/tro/local/python",
+        "/Users/jeff/devl/firestarter/src/firestarter",
     ],
-    "python.linting.flake8Enabled": true,
-    "python.pythonPath": "/Users/jeff/.pyenv/versions/troload/bin/python",
+    "python.linting.flake8Enabled": false,
+    "python.pythonPath": "/Users/jeff/.pyenv/versions/firestarter/bin/python",
     "python.linting.enabled": true
 }
